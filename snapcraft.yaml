@@ -1,19 +1,67 @@
 name: awalwm2m-snap
 version: 1.0-1
-architectures: [ amd64 ]
+architectures: [ amd64 armhf ]
 summary: the git version of AwaLWM2M
 description: See $summary
 grade: devel
 confinement: devmode
 
 apps:
-  awalwm2m-client:
+  awa-clientd:
     command: awa_clientd
-  awalwm2m-server:
+    plugs: [network, network-bind]
+  awa-serverd:
     command: awa_serverd
-  awalwm2m-bootstrapd:
+    plugs: [network, network-bind]
+  awa-bootstrapd:
     command: awa_bootstrapd
-
+    plugs: [network, network-bind]
+  awa-server-define:
+    command: awa-server-define
+    plugs: [network, network-bind]
+  awa-client-define:
+    command: awa-client-define
+    plugs: [network, network-bind]
+  awa-client-delete:
+    command: awa-client-delete
+    plugs: [network, network-bind]
+  awa-client-set:
+    command: awa-client-set
+    plugs: [network, network-bind]
+  awa-client-get:
+    command: awa-client-get
+    plugs: [network, network-bind]
+  awa-client-explore:
+    command: awa-client-explore
+    plugs: [network, network-bind]
+  awa-client-subscribe:
+    command: awa-client-subscribe
+    plugs: [network, network-bind]
+  awa-server-explore:
+    command: awa-server-explore
+    plugs: [network, network-bind]
+  awa-server-list-clients:
+    command: awa-server-list-clients
+    plugs: [network, network-bind]
+  awa-server-read:
+    command: awa-server-read
+    plugs: [network, network-bind]
+  awa-server-write:
+    command: awa-server-write
+    plugs: [network, network-bind]
+  awa-server-delete:
+    command: awa-server-delete
+    plugs: [network, network-bind]
+  awa-server-execute:
+    command: awa-server-execute
+    plugs: [network, network-bind]
+  awa-server-write-attributes:
+    command: awa-server-write-attributes
+    plugs: [network, network-bind]
+  awa-server-observe:
+    command: awa-server-observe
+    plugs: [network, network-bind]
+    
 parts:
   awalwm2m:
     plugin: cmake
