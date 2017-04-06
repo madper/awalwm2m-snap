@@ -18,3 +18,5 @@ parts:
   awalwm2m:
     plugin: cmake
     source: https://github.com/FlowM2M/AwaLWM2M.git
+    configflags:
+      - -DBUILD_TESTS=OFF
