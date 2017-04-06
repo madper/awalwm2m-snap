@@ -1,0 +1,20 @@
+name: awalwm2m-snap
+version: 1.0-1
+architectures: [ amd64 ]
+summary: the git version of AwaLWM2M
+description: See $summary
+grade: devel
+confinement: devmode
+
+apps:
+  awalwm2m-client:
+    command: awa_clientd
+  awalwm2m-server:
+    command: awa_serverd
+  awalwm2m-bootstrapd:
+    command: awa_bootstrapd
+
+parts:
+  awalwm2m:
+    plugin: cmake
+    source: https://github.com/FlowM2M/AwaLWM2M.git
